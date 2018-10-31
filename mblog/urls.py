@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.conf.urls import url,include
+from mainsite.views import homepage,showpost
 urlpatterns = [
+    url('^$',homepage),
+    url('post/(\w+)$',showpost),
+    url(r'^markdownx/', include('markdownx.urls')),
     path('admin/', admin.site.urls),
 ]
